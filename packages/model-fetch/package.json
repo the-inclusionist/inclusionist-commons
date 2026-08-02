@@ -18,11 +18,11 @@
     "build": "tsc -p tsconfig.json"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://gitlab.com/api/v4/projects/85034729/packages/npm/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrocha-io/inclusionist-commons.git",
+    "url": "git+https://gitlab.com/jrocha-dev/inclusionist-commons.git",
     "directory": "packages/model-fetch"
   },
   "devDependencies": {

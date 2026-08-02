@@ -37,6 +37,13 @@ export type {
   BytesFetcher,
   PcmPlayer,
 } from './engines/sherpa.js';
+export { KokoroWebGpuEngine } from './engines/kokoro-webgpu.js';
+export type {
+  KokoroWebGpuEngineDeps,
+  KokoroTts,
+  KokoroDtype,
+  KokoroDevice,
+} from './engines/kokoro-webgpu.js';
 
 /** Package version marker (bumped by Changesets on release). */
-export const VERSION = '0.4.0';
+export const VERSION = '0.5.0';

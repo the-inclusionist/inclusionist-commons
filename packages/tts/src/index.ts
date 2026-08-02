@@ -29,6 +29,14 @@ export { WebSpeechEngine, platformSpeechApi } from './engines/web-speech.js';
 export type { SpeechApi } from './engines/web-speech.js';
 export { MeSpeakEngine } from './engines/mespeak.js';
 export type { MeSpeakApi, MeSpeakVoice, MeSpeakEngineDeps } from './engines/mespeak.js';
+export { SherpaEngine, parseSherpaVoiceId } from './engines/sherpa.js';
+export type {
+  SherpaEngineDeps,
+  SherpaRuntime,
+  SherpaTtsSession,
+  BytesFetcher,
+  PcmPlayer,
+} from './engines/sherpa.js';
 
 /** Package version marker (bumped by Changesets on release). */
-export const VERSION = '0.3.0';
+export const VERSION = '0.4.0';

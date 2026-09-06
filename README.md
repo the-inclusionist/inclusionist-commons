@@ -8,12 +8,11 @@ Shared, versioned TypeScript packages reused across [the engine](https://github.
 > four. The `.npmrc` that redirected the scope was removed for that reason — it aimed at an empty
 > registry, and the registry decision has since changed twice.
 >
-> ⚠️ **AND TWO THINGS HERE ARE BEHIND THE RECORDS, both waiting on the Dev:** the package scope is
-> still `@jrocha-io` (**ADR-0071** chose `@the-inclusionist`, with `@pm-monte` in between), and the
-> licence is **GPL-3.0-or-later** where **ADR-0064** chose **AGPL-3.0-or-later** — for a reason that
-> lands precisely on packages like these: under GPL a vendor may host them as a service and owe the
-> source to nobody. Neither is changed here, because a licence and a published name are not a
-> migration's to decide.
+>
+> **Scope and licence are now the ones the records chose.** The four packages here are
+> `@the-inclusionist/*` (**ADR-0071**) and the licence is **AGPL-3.0-or-later** (**ADR-0064**) —
+> which is the licence this argument was written for: under GPL a vendor could host these as a
+> service and owe the source to nobody, and AGPL §13 closes exactly that.
 
 Decisions: `the-inclusionist` → ADR-0023 (labs are first-class apps) + ADR-0024 (multi-repo, versioned packages).
 
@@ -21,10 +20,10 @@ Decisions: `the-inclusionist` → ADR-0023 (labs are first-class apps) + ADR-002
 
 | Package | Purpose | Status |
 |---|---|---|
-| [`@jrocha-io/tts`](packages/tts) | TTS engine **port** + adapters (Web Speech · eSpeak-NG · sherpa-onnx-wasm · Kokoro-WebGPU) + registry | Stage 0: port only |
-| `@jrocha-io/audio` | `AudioPlayer` port + WebAudio impl | planned (Stage 2) |
-| `@jrocha-io/logging` | `Logger` port + DOM/console impls | planned (Stage 2) |
-| `@jrocha-io/model-fetch` | `ModelFetcher` DAO (fetch + Cache API + progress) | planned (Stage 2) |
+| [`@the-inclusionist/tts`](packages/tts) | TTS engine **port** + adapters (Web Speech · eSpeak-NG · sherpa-onnx-wasm · Kokoro-WebGPU) + registry | Stage 0: port only |
+| `@the-inclusionist/audio` | `AudioPlayer` port + WebAudio impl | planned (Stage 2) |
+| `@the-inclusionist/logging` | `Logger` port + DOM/console impls | planned (Stage 2) |
+| `@the-inclusionist/model-fetch` | `ModelFetcher` DAO (fetch + Cache API + progress) | planned (Stage 2) |
 
 ## Develop
 
@@ -53,4 +52,4 @@ is worse than no instruction.
 
 On Windows + Avast, run npm with `NODE_OPTIONS=--use-system-ca` and `UV_NATIVE_TLS=1` so the re-signed TLS validates.
 
-License: GPL-3.0-or-later.
+License: AGPL-3.0-or-later.

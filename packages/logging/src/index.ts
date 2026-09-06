@@ -1,4 +1,4 @@
-// @jrocha-io/logging — a one-method Logger port + a few sinks. Small on purpose: the lab needs an on-page
+// @the-inclusionist/logging — a one-method Logger port + a few sinks. Small on purpose: the lab needs an on-page
 // log and a console mirror; the game may reuse the port with different sinks.
 
 /** The logging port: one line at a time. */

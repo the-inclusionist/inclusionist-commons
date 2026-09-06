@@ -1,5 +1,5 @@
 // Kokoro-82M via onnxruntime-web (WebGPU/wasm) through kokoro-js — the fast neural path. The kokoro-js
-// loader + the audio player are INJECTED (structural types → @jrocha-io/tts stays dependency-free); the app
+// loader + the audio player are INJECTED (structural types → @the-inclusionist/tts stays dependency-free); the app
 // supplies the concrete kokoro-js. English voices only, on purpose: this measures RTF (language doesn't
 // change the speed; pt-BR g2p is a later step). fp32/fp16/q8 × webgpu/wasm are set at construction.
 

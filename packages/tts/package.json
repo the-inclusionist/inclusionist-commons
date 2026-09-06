@@ -1,8 +1,8 @@
 {
-  "name": "@jrocha-io/tts",
+  "name": "@the-inclusionist/tts",
   "version": "0.5.0",
   "description": "TTS engine ports + adapters (Web Speech, eSpeak-NG, sherpa-onnx-wasm, Kokoro-WebGPU) for The Inclusionist and its labs.",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "type": "module",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.js",

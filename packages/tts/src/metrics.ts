@@ -1,4 +1,4 @@
-// Pure synthesis metric. (PCM normalization — peak/gain — lives in @jrocha-io/audio, its natural home.)
+// Pure synthesis metric. (PCM normalization — peak/gain — lives in @the-inclusionist/audio, its natural home.)
 
 /** Real-time factor: synthesis time ÷ audio duration. <1 = faster than real time. */
 export function computeRtf(synthMs: number, audioSec: number): number {

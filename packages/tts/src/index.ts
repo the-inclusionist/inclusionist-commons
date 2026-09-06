@@ -1,4 +1,4 @@
-// @jrocha-io/tts — public surface.
+// @the-inclusionist/tts — public surface.
 // Stage 1 ships the PORT + the pure DOMAIN (voice catalogs, metrics, cache parse, engine params).
 // Adapters — WebSpeech, eSpeak-NG, sherpa-onnx-wasm, Kokoro-WebGPU — land in later stages (see the
 // migration plan in the-inclusionist: docs/5-Refactoring/plano-tts-lab-modularizacao.md).

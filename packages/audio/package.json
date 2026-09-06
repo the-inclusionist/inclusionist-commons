@@ -1,8 +1,8 @@
 {
-  "name": "@jrocha-io/audio",
+  "name": "@the-inclusionist/audio",
   "version": "0.1.0",
   "description": "Tiny WebAudio playback + PCM normalization for The Inclusionist and its labs.",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "type": "module",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.js",

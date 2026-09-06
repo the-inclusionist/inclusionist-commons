@@ -1,8 +1,8 @@
 {
-  "name": "@jrocha-io/model-fetch",
+  "name": "@the-inclusionist/model-fetch",
   "version": "0.1.0",
   "description": "Model/asset fetcher DAO — fetch + Cache API + streaming progress + first-download timestamp.",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "type": "module",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.js",

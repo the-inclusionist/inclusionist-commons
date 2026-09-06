@@ -1,7 +1,7 @@
 // sherpa-onnx-wasm adapter — runs any VITS/Piper .onnx + the Kokoro multi-lang model in the browser
 // (ADR-0022). The WASM runtime, the model fetcher and the audio player are all INJECTED (structural types,
-// so @jrocha-io/tts stays dependency-free); the app wires the concrete sherpa module + @jrocha-io/model-fetch
-// + @jrocha-io/audio. Voice catalogs + config come from this package; the ~18MB engine assets live in the app.
+// so @the-inclusionist/tts stays dependency-free); the app wires the concrete sherpa module + @the-inclusionist/model-fetch
+// + @the-inclusionist/audio. Voice catalogs + config come from this package; the ~18MB engine assets live in the app.
 
 import type { EngineMeta, Lang, SynthMetrics, SynthRequest, TtsEngine, Voice } from '../port.js';
 import { langOf } from '../lang.js';
@@ -20,12 +20,12 @@ export interface SherpaRuntime {
   createOfflineTts(config: unknown): SherpaTtsSession;
 }
 
-/** Minimal fetcher shape (satisfied by @jrocha-io/model-fetch's HttpModelFetcher). */
+/** Minimal fetcher shape (satisfied by @the-inclusionist/model-fetch's HttpModelFetcher). */
 export interface BytesFetcher {
   fetch(url: string, opts?: { force?: boolean; onProgress?: (frac: number) => void }): Promise<{ bytes: Uint8Array }>;
 }
 
-/** Minimal PCM player shape (satisfied by @jrocha-io/audio's WebAudioPlayer). */
+/** Minimal PCM player shape (satisfied by @the-inclusionist/audio's WebAudioPlayer). */
 export interface PcmPlayer {
   warm?(): void;
   play(samples: Float32Array, sampleRate: number): void;

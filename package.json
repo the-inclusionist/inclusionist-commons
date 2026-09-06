@@ -2,8 +2,8 @@
   "name": "inclusionist-commons",
   "private": true,
   "type": "module",
-  "description": "Shared versioned TypeScript packages (@jrocha-io/*) for The Inclusionist and its labs.",
-  "license": "GPL-3.0-or-later",
+  "description": "Shared versioned TypeScript packages (@the-inclusionist/*) for The Inclusionist and its labs.",
+  "license": "AGPL-3.0-or-later",
   "workspaces": [
     "packages/*"
   ],

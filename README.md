@@ -1,7 +1,19 @@
 # inclusionist-commons
 
-Shared, versioned TypeScript packages (`@jrocha-io/*`) reused across [The Inclusionist](https://github.com/jrocha-io/the-inclusionist),
-the [TTS Lab](https://github.com/jrocha-io/tts-lab), and future projects. Published to **GitLab Package Registry**.
+Shared, versioned TypeScript packages reused across [the engine](https://github.com/the-inclusionist/the-inclusionist-engine),
+[the lab](https://github.com/the-inclusionist/inclusionist-lab) and future projects.
+
+> ⚠️ **NOTHING HERE HAS EVER BEEN PUBLISHED.** Measured 2026-09-06: the GitLab registry this
+> repository used to point at holds **zero** packages, and npmjs answers 404 for every one of the
+> four. The `.npmrc` that redirected the scope was removed for that reason — it aimed at an empty
+> registry, and the registry decision has since changed twice.
+>
+> ⚠️ **AND TWO THINGS HERE ARE BEHIND THE RECORDS, both waiting on the Dev:** the package scope is
+> still `@jrocha-io` (**ADR-0071** chose `@the-inclusionist`, with `@pm-monte` in between), and the
+> licence is **GPL-3.0-or-later** where **ADR-0064** chose **AGPL-3.0-or-later** — for a reason that
+> lands precisely on packages like these: under GPL a vendor may host them as a service and owe the
+> source to nobody. Neither is changed here, because a licence and a published name are not a
+> migration's to decide.
 
 Decisions: `the-inclusionist` → ADR-0023 (labs are first-class apps) + ADR-0024 (multi-repo, versioned packages).
 
@@ -22,19 +34,22 @@ npm run build        # tsc per package
 npm run typecheck
 ```
 
-## Release (GitLab Package Registry)
+## Release
 
 ```bash
 npm run changeset    # describe the change + bump
 npm run version      # apply version bumps + changelogs
-npm run release      # build + changeset publish  (needs a GH Packages token; see below)
+npm run release      # build + changeset publish
 ```
 
-Publishing/installing `@jrocha-io/*` needs auth to GitLab Package Registry. In `~/.npmrc`:
+⚠️ **The publish target is NOT settled here.** **ADR-0072** chose **public npmjs** as the registry, for a
+measured reason: on GitHub Packages even *installing* a public package needs a token, and a volunteer whose
+first `npm install` returns `401` is a volunteer who leaves. The scope this repository publishes under is
+still the old one, so the first release waits on the scope decision above.
 
-```
-//gitlab.com/api/v4/projects/85034729/packages/npm/:_authToken=YOUR_GITLAB_TOKEN
-```
+The previous instructions here told the reader to put a `_authToken` for GitLab in their `~/.npmrc`. They
+were removed rather than corrected: that registry holds nothing, and a token instruction that points nowhere
+is worse than no instruction.
 
 On Windows + Avast, run npm with `NODE_OPTIONS=--use-system-ca` and `UV_NATIVE_TLS=1` so the re-signed TLS validates.
 

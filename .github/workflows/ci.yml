@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# OS PORTÕES DESTE REPOSITÓRIO — e por que ele NÃO chama o `game-ci.yml`.
+#
+# O ADR-0068 §4 mandou os JOGOS invocarem um workflow reutilizável em vez de copiarem um, e a razão é que
+# trezentas cópias derivam e a que deriva em silêncio é a que para de barrar. Isto aqui não é um jogo: é uma
+# biblioteca de quatro pacotes. O `game-ci.yml` instala Chromium e oferece um portão de axe contra um jogo
+# servido numa porta — nada disso existe aqui, e um chamador que passasse por cima disso seria uma cópia com
+# outro nome. Um workflow próprio e pequeno é mais honesto que um chamador que ignora metade do que chama.
+#
+# ⚠️ E O `typecheck` FOI CONSERTADO NO MESMO COMMIT, porque sem ele este portão nasceria vermelho. O script
+# da raiz era `tsc -b --pretty`; o `-b` procura `./tsconfig.json` e este repositório só tem
+# `tsconfig.base.json`, então falhava com TS5083 — desde antes desta migração. Agora ele se espalha pelos
+# workspaces, exatamente como o `build` já fazia.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      # `npm ci` e não `npm install`: o lockfile faz parte do que está sob teste.
+      - run: npm ci
+
+      # Cadeia de suprimentos primeiro, e só as dependências de produção — são as que chegam ao navegador de
+      # uma criança quando estes pacotes forem consumidos.
+      - name: audit (produção)
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: typecheck
+        run: npm run typecheck
+
+      - name: test
+        run: npm test
+
+      - name: build
+        run: npm run build
